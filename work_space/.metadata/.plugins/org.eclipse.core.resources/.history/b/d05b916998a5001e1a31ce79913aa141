@@ -1,0 +1,108 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "TOT_NGHIEP")
+@IdClass(TotnghiepEntityPK.class)
+public class TotnghiepEntity {
+
+    @Id
+    @Column(name = "SoCMND", nullable = false)
+    private String soCMND;
+
+    @Id
+    @Column(name = "MaTruong", nullable = false)
+    private String maTruong;
+
+    @Id
+    @Column(name = "MaNganh", nullable = false)
+    private String maNganh;
+
+    @Column(name = "HeTN")
+    private String heTN;
+
+    @Column(name = "NgayTN")
+    private java.sql.Date ngayTN;
+
+    @Column(name = "LoaiTN")
+    private String loaiTN;
+
+    // Constructors, Getters, Setters, hashCode, equals and toString methods
+
+    public String getSoCMND() {
+        return soCMND;
+    }
+
+    public void setSoCMND(String soCMND) {
+        this.soCMND = soCMND;
+    }
+
+    public String getMaTruong() {
+        return maTruong;
+    }
+
+    public void setMaTruong(String maTruong) {
+        this.maTruong = maTruong;
+    }
+
+    public String getMaNganh() {
+        return maNganh;
+    }
+
+    public void setMaNganh(String maNganh) {
+        this.maNganh = maNganh;
+    }
+
+    public String getHeTN() {
+        return heTN;
+    }
+
+    public void setHeTN(String heTN) {
+        this.heTN = heTN;
+    }
+
+    public java.sql.Date getNgayTN() {
+        return ngayTN;
+    }
+
+    public void setNgayTN(java.sql.Date ngayTN) {
+        this.ngayTN = ngayTN;
+    }
+
+    public String getLoaiTN() {
+        return loaiTN;
+    }
+
+    public void setLoaiTN(String loaiTN) {
+        this.loaiTN = loaiTN;
+    }
+
+    @Override
+    public String toString() {
+        return "TotnghiepEntity{" +
+                "soCMND='" + soCMND + '\'' +
+                ", maTruong='" + maTruong + '\'' +
+                ", maNganh='" + maNganh + '\'' +
+                ", heTN='" + heTN + '\'' +
+                ", ngayTN=" + ngayTN +
+                ", loaiTN='" + loaiTN + '\'' +
+                '}';
+    }
+}
+
+/**
+ * Primary key class for entity TotnghiepEntity since it's a composite key.
+ */
+class TotnghiepEntityPK implements java.io.Serializable {
+
+    private String soCMND;
+    private String maTruong;
+    private String maNganh;
+
+    // Constructors, Getters, Setters, hashCode, equals methods
+}

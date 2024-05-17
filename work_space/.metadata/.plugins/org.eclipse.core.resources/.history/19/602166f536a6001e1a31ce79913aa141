@@ -1,0 +1,22 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.dto.Form2Dto;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.SinhVienEntity;
+
+@Repository
+public interface SinhVienRepository extends JpaRepository<SinhVienEntity, String> {
+	List<SinhVienEntity> findByHoTenContaining(String hoTen);
+	
+	 @Query(value = "SELECT sv.soCMND as soCMND, sv.hoTen as hoTen, tn.maNganh as maNganhTotNghiep, tn.maTruong as maTruongTotNghiep, cv.maNganh as maNganhCongTy, cv.tenCongTy as tenCongTy, cv.thoiGianLamViec as thoiGianLamViec " +
+             "FROM SINHVIEN sv " +
+             "JOIN TOTNGHIEP tn ON sv.soCMND = tn.soCMND " +
+             "JOIN CONGVIEC cv ON sv.soCMND = cv.soCMND " +
+             "WHERE sv.hoTen LIKE %?1%", nativeQuery = true)
+List<Form2Dto> searchByHoTen(String hoTen);
+}

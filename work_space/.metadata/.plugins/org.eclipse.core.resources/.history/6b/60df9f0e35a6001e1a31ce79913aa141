@@ -1,0 +1,41 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.dto;
+
+public class Form2Dto {
+    private String soCMND;
+    private String hoTen;
+    private String maNganhTotNghiep;
+    private String maTruongTotNghiep;
+    private String maNganhCongTy;
+    private String tenCongTy;
+    private Integer thoiGianLamViec;
+
+    // Constructors, Getters và Setters
+
+    public Form2Dto() {
+    }
+
+    // Tạo constructor với tất cả các thuộc tính nếu cần
+    public Form2Dto(String soCMND, String hoTen, String maNganhTotNghiep, String maTruongTotNghiep, String maNganhCongTy, String tenCongTy, Integer thoiGianLamViec) {
+        this.soCMND = soCMND;
+        this.hoTen = hoTen;
+        this.maNganhTotNghiep = maNganhTotNghiep;
+        this.maTruongTotNghiep = maTruongTotNghiep;
+        this.maNganhCongTy = maNganhCongTy;
+        this.tenCongTy = tenCongTy;
+        this.thoiGianLamViec = thoiGianLamViec;
+    }
+
+    // Getters và Setters cho mỗi thuộc tính
+    // ...
+    
+    // Ví dụ cho getter và setter:
+    public String getSoCMND() {
+        return soCMND;
+    }
+
+    public void setSoCMND(String soCMND) {
+        this.soCMND = soCMND;
+    }
+
+    // ... Tiếp tục với các thuộc tính khác
+}

@@ -1,0 +1,27 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.dto;
+
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.TotNghiepEntity;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.SinhVienEntity;
+
+public class TotNghiepDTO {
+    private SinhVienEntity sinhVien;
+    private TotNghiepEntity totNghiep;
+
+    // Constructors, getters, and setters
+
+    public SinhVienEntity getSinhVien() {
+        return sinhVien;
+    }
+
+    public void setSinhVien(SinhVienEntity sinhVien) {
+        this.sinhVien = sinhVien;
+    }
+
+    public TotNghiepEntity getTotNghiep() {
+        return totNghiep;
+    }
+
+    public void setTotNghiep(TotNghiepEntity totNghiep) {
+        this.totNghiep = totNghiep;
+    }
+}

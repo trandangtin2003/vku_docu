@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+
+<body>
+	<!-- cách 1 -->
+
+	<main class="container mt-4" th:fragment="content">
+		<h2>Tìm kiếm thông tin lịch sử tiêm chủng</h2>
+		<form th:action="@{/tiemchung/search2}" method="post">
+			<div class="form-group">
+				<label for="soDienThoai">Số điện thoại:</label>
+				<input type="text" class="form-control" id="soDienThoai" name="soDienThoai" placeholder="Nhập số điện thoại"
+					required>
+			</div>
+			<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+		</form>
+
+		<div th:if="${ketqua}">
+			<h2>Kết quả tìm kiếm</h2>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<!--<th>Họ Tên</th>-->
+						<th>Họ Tên</th>
+						<th>Ngày Sinh</th>
+						<th>Địa chỉ</th>
+						<th>Số điện thoại</th>
+						<th>Tên loại vacxin</th>
+						<th>Ngày tiêm</th>
+						<th>Sức khỏe sau tiêm</th>
+						<th>Đánh Giá</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="sv : ${ketqua}">
+						<!--<td th:text="${sv.soCMND}"></td>-->
+						<td th:text="${sv.hoTen}"></td>
+						<td th:text="${sv.ngaySinh}"></td>
+						<td th:text="${sv.diaChi}"></td>
+						<td th:text="${sv.soDienThoai}"></td>
+						<td th:text="${sv.tenCongTy}"></td>
+						<td th:text="${sv.thoiGianLamViec}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+
+
+	<!--cách 2-->
+	<!--<main class="container mt-4" th:fragment="content">
+		<h2>Tìm kiếm thông tin tốt nghiệp và việc làm của sinh viên</h2>
+		<form th:action="@{/sinhvien/search2}" method="post">
+			<div class="form-group">
+				<label for="hoTen">Mã CMND:</label>
+				<input type="text" class="form-control" id="soCMND" name="soCMND" placeholder="Nhập họ số cmnd"
+					required>
+			</div>
+			<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+		</form>
+
+		<div th:if="${ketquaTotNghiep}">
+			<h3>Kết quả tốt nghiệp</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>SoCMND</th>
+						<th>Họ Tên</th>
+						<th>Mã Ngành</th>
+						<th>Mã Trường</th>
+						<th>Ngày Tốt Nghiệp</th>
+						<th>Loại Tốt Nghiệp</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="tn : ${ketquaTotNghiep}">
+						<td th:text="${tn.soCMND}"></td>
+						<td th:text="${tn.hoTen}"></td>
+						<td th:text="${tn.maNganh}"></td>
+						<td th:text="${tn.maTruong}"></td>
+						<td th:text="${tn.ngayTN}"></td>
+						<td th:text="${tn.loaiTN}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div th:if="${ketquaCongViec}">
+			<h3>Kết quả việc làm</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>SoCMND</th>
+						<th>Họ Tên</th>
+						<th>Mã Ngành</th>
+						<th>Tên Công Ty</th>
+						<th>Địa Chỉ Công Ty</th>
+						<th>Thời Gian Làm Việc</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cv : ${ketquaCongViec}">
+						<td th:text="${cv.soCMND}"></td>
+						<td th:text="${cv.hoTen}"></td>
+						<td th:text="${cv.maNganh}"></td>
+						<td th:text="${cv.tenCongTy}"></td>
+						<td th:text="${cv.diaChiCongTy}"></td>
+						<td th:text="${cv.thoiGianLamViec}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+-->
+
+</body>
+
+</html>

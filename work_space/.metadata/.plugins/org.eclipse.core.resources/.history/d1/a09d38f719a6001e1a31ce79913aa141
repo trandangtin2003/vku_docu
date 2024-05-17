@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Thông Tin Tốt Nghiệp Sinh Viên</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<a class="navbar-brand" href="#">IT176 Trần Đăng Tín</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<!-- Navbar content here -->
+			</div>
+		</nav>
+	</header>
+
+	<main role="main" class="container mt-5">
+		<h1 class="text-center">Form Nhập Thông Tin Tốt Nghiệp</h1>
+		<form th:action="@{/totnghiep}" th:object="${totNghiep}" method="post">
+			<div class="form-group">
+				<label for="soCMND">Số CMND</label>
+				<input type="text" class="form-control" id="soCMND" name="soCMND" required>
+			</div>
+
+			<!-- Thêm các trường dành cho SinhVien -->
+			<div class="form-group">
+				<label for="hoTen">Họ Tên</label>
+				<input type="text" class="form-control" id="hoTen" name="hoTen" required>
+			</div>
+
+			<div class="form-group">
+				<label for="diaChi">Địa Chỉ</label>
+				<input type="text" class="form-control" id="diaChi" name="diaChi" required>
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" class="form-control" id="email" name="email" required>
+			</div>
+
+			<!-- ComboBox cho MaTruong -->
+			<div class="form-group">
+				<label for="maTruong">Mã Trường</label>
+				<select class="form-control" id="maTruong" th:field="*{maTruong}" required>
+					<option value="" th:each="truong : ${truongs}" th:value="${truong.maTruong}"
+						th:text="${truong.tenTruong}">Chọn trường</option>
+				</select>
+			</div>
+
+			<!-- ComboBox cho MaNganh -->
+			<div class="form-group">
+				<label for="maNganh">Mã Ngành</label>
+				<select class="form-control" id="maNganh" th:field="*{maNganh}" required>
+					<option value="" th:each="nganh : ${nganhs}" th:value="${nganh.maNganh}"
+						th:text="${nganh.tenNganh}">Chọn ngành</option>
+				</select>
+			</div>
+
+			<!-- Các trường thông tin khác -->
+			<div class="form-group">
+				<label for="heTN">Hệ Tốt Nghiệp</label>
+				<input type="text" class="form-control" id="heTN" th:field="*{heTN}">
+			</div>
+
+			<div class="form-group">
+				<label for="ngayTN">Ngày Tốt Nghiệp</label>
+				<input type="date" class="form-control" id="ngayTN" th:field="*{ngayTN}" required>
+			</div>
+
+			<div class="form-group">
+				<label for="loaiTN">Loại Tốt Nghiệp</label>
+				<input type="text" class="form-control" id="loaiTN" th:field="*{loaiTN}">
+			</div>
+
+			<!-- Nút submit -->
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</main>
+
+	<footer class="footer mt-auto py-3 bg-dark">
+		<div class="container">
+			<span class="text-muted">Bản quyền © IT176 Trần Đăng Tín</span>
+		</div>
+	</footer>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

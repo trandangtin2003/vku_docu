@@ -1,0 +1,43 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity;
+import java.util.Set;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "KHACHHANG")
+public class KhachHangEntity {
+    @Id
+    @Column(name = "MaKH", nullable = false)
+    private String maKH;
+
+    @Column(name = "HoTen", nullable = false)
+    private String hoTen;
+    
+    @Column(name = "NgaySinh")
+    private java.sql.Date ngaySinh;
+    
+    @Column(name = "CMND")
+    private String cMND;
+    
+    @Column(name = "SoDienThoai")
+    private String soDienThoai;
+    
+    @Column(name = "DiaChi")
+    private String diaChi;
+
+    @Column(name = "Email")
+    private String email;
+
+
+    @OneToMany(mappedBy = "khachhang")
+    private Set<TiemChungEntity> tiemChungEntities;
+
+   
+
+    // Getters và setters
+    
+}

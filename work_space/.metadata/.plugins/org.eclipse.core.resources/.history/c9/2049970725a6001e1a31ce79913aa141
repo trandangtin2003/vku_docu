@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+
+<body>
+
+	<main role="main" class="container mt-5" th:fragment="content">
+		<h1 class="text-center">Form Nhập Thông Tin Tốt Nghiệp</h1>
+		<form th:action="@{/totnghiep}" th:object="${totNghiep}" method="post">
+			<div class="form-group">
+				<label for="soCMND">Số CMND</label>
+				<input type="text" class="form-control" id="soCMND" name="soCMND" required>
+			</div>
+
+			<!-- Thêm các trường dành cho SinhVien -->
+			<div class="form-group">
+				<label for="hoTen">Họ Tên</label>
+				<input type="text" class="form-control" id="hoTen" name="hoTen" required>
+			</div>
+
+			<div class="form-group">
+				<label for="diaChi">Địa Chỉ</label>
+				<input type="text" class="form-control" id="diaChi" name="diaChi" required>
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" class="form-control" id="email" name="email" required>
+			</div>
+			<div class="form-group">
+				<label for="email">Số điện thoại</label>
+				<input type="text" class="form-control" id="soDT" name="soDT" required>
+			</div>
+
+			<!-- ComboBox cho MaTruong -->
+			<div class="form-group">
+				<label for="maTruong">Mã Trường</label>
+				<select class="form-control" id="maTruong" th:field="*{maTruong}" required>
+					<option value="" th:each="truong : ${truongs}" th:value="${truong.maTruong}"
+						th:text="${truong.tenTruong}">Chọn trường</option>
+				</select>
+			</div>
+
+			<!-- ComboBox cho MaNganh -->
+			<div class="form-group">
+				<label for="maNganh">Mã Ngành</label>
+				<select class="form-control" id="maNganh" th:field="*{maNganh}" required>
+					<option value="" th:each="nganh : ${nganhs}" th:value="${nganh.maNganh}"
+						th:text="${nganh.tenNganh}">Chọn ngành</option>
+				</select>
+			</div>
+
+			<!-- Các trường thông tin khác -->
+			<div class="form-group">
+				<label for="heTN">Hệ Tốt Nghiệp</label>
+				<input type="text" class="form-control" id="heTN" th:field="*{heTN}">
+			</div>
+
+			<div class="form-group">
+				<label for="ngayTN">Ngày Tốt Nghiệp</label>
+				<input type="date" class="form-control" id="ngayTN" th:field="*{ngayTN}" required>
+			</div>
+
+			<div class="form-group">
+				<label for="loaiTN">Loại Tốt Nghiệp</label>
+				<input type="text" class="form-control" id="loaiTN" th:field="*{loaiTN}">
+			</div>
+
+			<!-- Nút submit -->
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</main>
+
+
+</body>
+
+</html>

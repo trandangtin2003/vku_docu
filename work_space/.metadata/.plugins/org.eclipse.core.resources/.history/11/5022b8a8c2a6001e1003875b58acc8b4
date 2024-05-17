@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Thông Tin Tốt Nghiệp Sinh Viên</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="/css/styles.css">
+	<style>
+		body {
+			padding-top: 5rem;
+		}
+
+		.navbar {
+			margin-bottom: 3rem;
+		}
+
+		.footer {
+			background: #212529;
+			color: #fff;
+			padding: 1rem 0;
+		}
+
+		.footer .container {
+			text-align: center;
+		}
+
+		.navbar-brand,
+		.nav-link {
+			text-shadow: 1px 1px 2px #0005;
+		}
+
+		.navbar-brand {
+			font-weight: bold;
+			color: #fff !important;
+		}
+
+		.navbar-toggler {
+			border-color: #9fcdff;
+		}
+
+		.nav-link {
+			margin-right: 1rem;
+			color: #d1e7dd !important;
+			/* Override color set by th:href */
+		}
+
+		.nav-link:hover {
+			opacity: 0.7;
+		}
+
+		.alert {
+			position: fixed;
+			top: 70px;
+			right: 20px;
+			z-index: 9999;
+		}
+	</style>
+</head>
+
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+			<div class="container">
+				<a class="navbar-brand" href="/">21IT176 Trần Đăng Tín</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/sinhvien/form1}">Tìm kiếm thông tin sinh viên form 1</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/sinhvien/form2}">Tra cứu thông tin sinh viên form 2</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div th:if="${message}" class="alert alert-success" role="alert">
+				<p th:text="${message}"></p>
+			</div>
+		</nav>
+	</header>
+	<div style="flex-grow: 1;">
+        <div class="container mt-4">
+            <div th:insert="${dieu_huong} :: content"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span>Bản quyền © IT176 Trần Đăng Tín</span>
+        </div>
+    </footer>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

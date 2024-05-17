@@ -1,0 +1,14 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.repository;
+
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.TotNghiepEntity;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface LieuVacXinRepository extends JpaRepository<TotNghiepEntity, String> {
+
+	List<TotNghiepEntity> getBysoCMND(String soCMND);
+}

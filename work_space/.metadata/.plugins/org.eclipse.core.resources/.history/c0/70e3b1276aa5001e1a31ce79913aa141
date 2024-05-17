@@ -1,0 +1,43 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity;
+
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "TOTNGHIEP")
+@IdClass(TotNghiepId.class)
+public class TotNghiepEntity {
+
+    @Id
+    @Column(name = "SoCMND", nullable = false)
+    private String soCMND;
+
+    @Id
+    @Column(name = "MaTruong", nullable = false)
+    private String maTruong;
+
+    @Column(name = "MaNganh", nullable = false)
+    private String maNganh;
+
+    @Column(name = "HeTN", nullable = false)
+    private String heTN;
+
+    @Column(name = "NgayTN", nullable = false)
+    private java.sql.Date ngayTN;
+
+    @Column(name = "LoaiTN")
+    private String loaiTN;
+
+    // Standard getters and setters
+
+    public String getSoCMND() {
+        return soCMND;
+    }
+
+    public void setSoCMND(String soCMND) {
+        this.soCMND = soCMND
+

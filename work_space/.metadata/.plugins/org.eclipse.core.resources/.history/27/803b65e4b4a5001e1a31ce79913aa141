@@ -1,0 +1,33 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.TotNghiepEntity;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service.NganhService;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service.TruongService;
+
+@Controller
+public class HomeController {
+
+    private final TruongService truongService;
+    private final NganhService nganhService;
+
+    @Autowired
+    public HomeController(TruongService truongService, NganhService nganhService) {
+        this.truongService = truongService;
+        this.nganhService = nganhService;
+    }
+
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("totNghiep", new TotNghiepEntity());
+        model.addAttribute("truongs", truongService.findAllTruongs());
+        model.addAttribute("nganhs", nganhService.findAllNganhs());
+        return "index";
+    }
+
+    // Thêm các phương thức xử lý khác nếu cần
+}

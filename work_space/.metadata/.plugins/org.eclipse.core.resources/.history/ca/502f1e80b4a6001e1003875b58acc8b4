@@ -1,0 +1,33 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.LieuVacXinEntity;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.repository.LieuVacXinRepository;
+
+@Service
+public class LieuVacXinService {
+
+    private final LieuVacXinRepository lieuVacXinRepository;
+
+    @Autowired
+    public LieuVacXinService(LieuVacXinRepository lieuVacXinRepository) {
+        this.lieuVacXinRepository = lieuVacXinRepository;
+    }
+
+    @Transactional
+    public void save(LieuVacXinEntity vacxin) {
+        totNghiepRepository.save(vacxin);
+    }
+    @Transactional
+	public List<TotNghiepEntity> searchByCMND(String soCMND) {
+		
+		return totNghiepRepository.getBysoCMND(soCMND);
+	}
+
+    // Thêm các phương thức service khác nếu cần
+}

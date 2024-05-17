@@ -1,0 +1,42 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.SinhVienEntity;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.TotNghiepEntity;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.repository.TotNghiepRepository;
+
+@Service
+public class TotNghiepService {
+
+    private final TotNghiepRepository totNghiepRepository;
+
+    @Autowired
+    public TotNghiepService(TotNghiepRepository totNghiepRepository) {
+        this.totNghiepRepository = totNghiepRepository;
+    }
+
+    @Transactional
+    public void save(TotNghiepEntity totNghiep) {
+        totNghiepRepository.save(totNghiep);
+    }
+    public List<TotNghiepEntity> searchByHoTen(String hoTen) {
+        SinhVienEntity exampleSinhVien = new SinhVienEntity();
+        exampleSinhVien.setHoTen(hoTen);
+        Example<SinhVienEntity> example = Example.of(exampleSinhVien, 
+            ExampleMatcher.matching().withMatcher("hoTen", match -> match.contains()));
+        
+        return totNghiepRepository.findAll().stream()
+            .filter(totNghiep -> Example.of(totNghiep.getSinhVien(), example).matches())
+            .collect(Collectors.toList());
+    }
+
+    // Thêm các phương thức service khác nếu cần
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.dto.TotNghiepDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.TotNghiepEntity"/>
+    <fullyQualifiedTypeName name="com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.CongViecEntity"/>
+    <fullyQualifiedTypeName name="com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.repository.KhachHangRepository"/>
+    <fullyQualifiedTypeName name="com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.repository.LieuVacXinRepository"/>
+    <fullyQualifiedTypeName name="com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.LieuVacXinEntity"/>
+    <fullyQualifiedTypeName name="com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.LoaiVacXinEntity"/>
+    <fullyQualifiedTypeName name="com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.TiemChungEntity"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.KhachHangEntity"/>
+</qualifiedTypeNameHistroy>

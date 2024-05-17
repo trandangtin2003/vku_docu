@@ -1,0 +1,41 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.TiemChungEntity;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.TotNghiepEntity;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service.NganhService;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service.SinhVienService;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service.TotNghiepService;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service.TruongService;
+
+@Controller
+public class HomeController {
+
+    private final KhachHangService khachHangService;
+    private final LieuVacXinService lieuVacXinService;
+    private final LoaiVacXinService loaiVacXinService;
+    private final TiemChungService tiemChungService;
+
+    @Autowired
+    public HomeController(KhachHangService khachHangService, LieuVacXinService lieuVacXinService,LoaiVacXinService loaiVacXinService,TiemChungService tiemChungService) {
+        this.khachHangService = khachHangService;
+        this.lieuVacXinService = lieuVacXinService;
+        this.loaiVacXinService = loaiVacXinService;
+        this.tiemChungService = tiemChungService;
+    }
+
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("tiemChung", new TiemChungEntity());
+        model.addAttribute("loaivacxins", truongService.findAllTruongs());
+        model.addAttribute("nganhs", nganhService.findAllNganhs());
+        model.addAttribute("dieu_huong", "form");
+        return "index";
+    }
+
+   
+}

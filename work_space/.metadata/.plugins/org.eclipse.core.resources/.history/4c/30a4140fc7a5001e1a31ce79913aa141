@@ -1,0 +1,48 @@
+package com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.entity.TotNghiepEntity;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service.NganhService;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service.TotNghiepService;
+import com.IT176_TranDangTin_javaWeb.IT176_TranDangTin_javaWeb.service.TruongService;
+
+@Controller
+public class HomeController {
+
+    private final TruongService truongService;
+    private final NganhService nganhService;
+    private final TotNghiepService totNghiepService;
+
+    @Autowired
+    public HomeController(TruongService truongService, NganhService nganhService,TotNghiepService totNghiepService) {
+        this.truongService = truongService;
+        this.nganhService = nganhService;
+        this.totNghiepService = totNghiepService;
+    }
+
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("totNghiep", new TotNghiepEntity());
+        model.addAttribute("truongs", truongService.findAllTruongs());
+        model.addAttribute("nganhs", nganhService.findAllNganhs());
+        return "index";
+    }
+
+    @PostMapping("/totnghiep")
+    public String saveTotNghiep(TotNghiepEntity totnghiepEntity, RedirectAttributes redirectAttributes) {
+        // Lưu thông tin tốt nghiệp vào cơ sở dữ liệu sử dụng TotNghiepService
+        totnghiepService.save(totnghiepEntity);
+        
+        // Thông báo cho người dùng biết việc lưu đã thành công
+        redirectAttributes.addFlashAttribute("successMessage", "Thông tin tốt nghiệp đã được lưu thành công!");
+
+        // Chuyển hướng trở lại trang chủ
+        return "redirect:/";
+    }
+}
